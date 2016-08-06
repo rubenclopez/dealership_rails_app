@@ -37,6 +37,17 @@ body {
   text-align: center;
 }
 
+.ds-form {
+  input.ng-invalid {
+    border-color: #fed4d2;
+  }
+
+  input.ng-invalid.ng-touched {
+    border-color: #ff7070;
+  }
+}
+
+
 // TODO: Move this out to somewhere cool
 .heavy-table {
   div {

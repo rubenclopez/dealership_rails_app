@@ -10,28 +10,28 @@ app.directive('dsForm', ['$rootScope', ($rootScope)->
     resource: '@'
     onSubmit: '&'
   template: '''
-    <form class="form-horizontal">
+    <form class="form-horizontal ds-form" novalidate name="dsForm">
       <div class="form-group" x-ng-repeat="key in getKeys()">
         <label for="{{ key }}_id" class="control-label col-sm-2">{{ key | uppercase }}</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" name="{{ getInputName(key) }}" id="{{ getInputId(key) }}" x-ng-model="_data[key]">
+          <input type="text" class="form-control" name="{{ getInputName(key) }}" id="{{ getInputId(key) }}" x-ng-model="_data[key]" required>
         </div>
       </div>
-      <div class="form-group" x-ng-show="selectElement">
+      <div class="form-group" x-ng-if="selectElement">
         <label for="{{ selectElement.name }}_id" class="control-label col-sm-2">{{ selectElement.name | uppercase }}</label>
-        <select class="select-element" name="{{ getInputName(selectElement.name) }}" x-use-bootstrap-select x-ng-model="_data[selectElement.name]">
+        <select class="select-element" name="{{ getInputName(selectElement.name) }}" x-use-bootstrap-select x-ng-model="_data[selectElement.name]" required>
           <option x-ng-repeat="item in selectElement.items" value="{{ item.id }}">{{ item.name }}</option>
         </select>
       </div>
       <div class="form-group">
         <div class="col-sm-2 col-sm-offset-2"> <!--New div, offset because there is no label -->
-          <button type="submit" class="btn btn-primary" x-ng-click="submitHandler()" x-ng-disabled="isSubmitting">
+          <button type="submit" class="btn btn-primary" x-ng-click="submitHandler()" x-ng-disabled="dsForm.$invalid">
             <i class="fa fa-circle-o-notch fa-spin" aria-hidden="true" x-ng-if="isSubmitting"></i>
             {{ isSubmitting ? 'Submitting' : 'Submit' }}
           </button>
         </div>
         <div class="col-sm-1">
-          <button type="cancel" class="btn btn-danger" x-ng-click="cancelHandler()">Cancel</button>
+          <button type="reset" class="btn btn-danger" x-ng-click="cancelHandler()">Cancel</button>
         </div>
       </div>
     </form>
@@ -76,6 +76,7 @@ app.directive('dsForm', ['$rootScope', ($rootScope)->
 
     $scope.cancelHandler = ()->
       $scope._data = _getDefaultValues()
+      $scope.dsForm.$setUntouched();
       $scope.data.isEditing = false if $scope.data
   ]
 ])
