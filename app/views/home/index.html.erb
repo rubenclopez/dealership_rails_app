@@ -1,0 +1,5 @@
+<div class="container">
+  <% @vehicles_in_groups.each do |groups| %>
+    <%= render partial: 'home/vehicles/vehicle', locals: { groups: groups } %>
+  <% end %>
+</div>

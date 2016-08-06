@@ -1,0 +1,53 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.spacer {
+  height: 10px;
+}
+
+.spacer2 {
+  height: 50px;
+}
+
+.button-tags {
+  .button-buy {
+    width: 160px;
+  }
+
+  .label {
+    font-size: 15px;
+    line-height: 2;
+  }
+}
+
+.buy-directive {
+  .form-control {
+    width: 96px !important;
+  }
+}
+
+.card-item {
+  background: #ffffff;
+  -moz-box-shadow: 0 1px 1px rgb(72, 72, 72);
+  box-shadow: 0 1px 1px rgb(72, 72, 72);
+  border-radius: 2%;
+  overflow: hidden;
+  border: 1px solid steelblue;
+
+  footer {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    border: 1px solid red;
+  }
+}
+
+.image-container {
+  height: 200px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+}
