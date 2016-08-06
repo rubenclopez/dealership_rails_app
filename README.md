@@ -1,28 +1,44 @@
-== README
+Dealership Rails App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+RVM: 
+  ruby: ruby-2.3.0
+  gemset: dealership_gems
 
-Things you may want to cover:
+  NOTE: If RVM is installed, on folder switch rvm should create gemset automatically
 
-* Ruby version
+Prepare app: 
+  gem install bundler
+  bundle install
+  rake db:migrate && rake db:setup
 
-* System dependencies
+User accounts:
+  Owner - owner@dealership.com
+  Manager - manager@dealership.com
+  Salesman - salesman@dealership.com
 
-* Configuration
+Default password: letmein
 
-* Database creation
+Technologies used:
+  RVM
+  Rails 4
+  Angular 1
+  CoffeeScript / JavaScript
+  Html
+  CSS
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Gems used:
+  pry-byebug
+  bootstrap-sass
+  bootstrap-select-rails
+  font-awesome-rails
+  devise
+  angularjs-rails
+  angular_rails_csrf
+  lodash-rails
+  underscore-rails
+  restangular-rails
+  factory_girl_rails
+  rspec-rails
+  rspec
+  shoulda-matchers
+  shoulda-callback-matchers
