@@ -1,0 +1,91 @@
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="thumbnail">
+        <%= image_tag "car-#{ ( (@vehicle.id - 1) % 3 ) + 1}.jpg" %>
+      </div>
+    </div>
+    <div class="col-md-5 vehicle-information">
+      <div class="row">
+        <div class="col-md-4 topic-name">
+          Heading
+        </div>
+        <div class="col-md-8 topic-valud">
+          <%= @vehicle.heading %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 topic-name">
+          Description
+        </div>
+        <div class="col-md-8 topic-valud">
+          <%= @vehicle.description %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 topic-name">
+          Make
+        </div>
+        <div class="col-md-8 topic-valud">
+          <%= @vehicle.make %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 topic-name">
+          Model
+        </div>
+        <div class="col-md-8 topic-valud">
+          <%= @vehicle.model %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 topic-name">
+          Year
+        </div>
+        <div class="col-md-8 topic-valud">
+          <%= @vehicle.year %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 topic-name">
+          Location Name:
+        </div>
+        <div class="col-md-8 topic-valud">
+          <%= @vehicle.location.name %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 topic-name">
+          Location Address:
+        </div>
+        <div class="col-md-8 topic-valud">
+          <%= @vehicle.location.address %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 topic-name">
+          Location city:
+        </div>
+        <div class="col-md-8 topic-valud">
+          <%= @vehicle.location.city %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 topic-name">
+          Location state:
+        </div>
+        <div class="col-md-8 topic-valud">
+          <%= @vehicle.location.state %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 topic-name">
+          Location zip:
+        </div>
+        <div class="col-md-8 topic-valud">
+          <%= @vehicle.location.zip %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

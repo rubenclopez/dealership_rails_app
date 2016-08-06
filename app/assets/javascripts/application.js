@@ -12,5 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require angular
+//= require lodash
+//= require underscore
+//= require restangular
+//= require bootstrap/alert
+//= require bootstrap/dropdown
+//= require bootstrap-select
+
+//= require dealership-app/dealership-app
+
 //= require_tree .
