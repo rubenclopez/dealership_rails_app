@@ -72,6 +72,9 @@ app.directive('dsForm', ['$rootScope', ($rootScope)->
         item: $scope._data
         callback: ()=>
           $scope.isSubmitting = false
+          $scope.dsForm.$setUntouched();
+          $scope.data.isEditing = false if $scope.data
+          $scope._data = _getDefaultValues()
       )
 
     $scope.cancelHandler = ()->
