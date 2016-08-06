@@ -24,3 +24,36 @@ body {
   background: steelblue;
   font-family: "Open Sans", arial;
 }
+
+.alert {
+  padding: 0;
+  margin-bottom: 0;
+  border: 0;
+  border-radius: 0;
+  color: red !important;
+}
+
+.no-data {
+  text-align: center;
+}
+
+// TODO: Move this out to somewhere cool
+.heavy-table {
+  div {
+      overflow: hidden;
+      -webkit-transition: max-height 1.5s cubic-bezier(0, 1.05, 0, 1);
+      -moz-transition: max-height 1.5s cubic-bezier(0, 1.05, 0, 1);
+      transition: max-height 1.5s ease cubic-bezier(0, 1.05, 0, 1);
+  }
+
+  div:hover {
+      -webkit-transition: max-height 2s ease;
+      -moz-transition: max-height 2s ease;
+      transition: max-height 2s ease;
+      max-height: 400px;
+  }
+
+  .table-button-center {
+    text-align: center
+  }
+}

@@ -2,13 +2,48 @@
 <html>
 <head>
   <title>Dealership</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body x-ng-app="dealershipApp">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button aria-expanded="false" class="collapsed navbar-toggle"
+                data-target="#bs-example-navbar-collapse-9"
+                data-toggle="collapse" type="button">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">CarsRetailer</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+        <ul class="nav navbar-nav">
+          <%= render_link('Home', root_path) %>
+          <% if user_signed_in? %>
+            <% if current_user.has_roles?('owner') %>
+              <%= render_link('Locations', locations_path) %>
+            <% end %>
+            <% if current_user.has_roles?('owner', 'manager') %>
+              <%= render_link('Vehicles', vehicles_path) %>
+            <% end %>
+            <% if current_user.has_roles?('owner') %>
+              <%= render_link('Audits', audits_path) %>
+            <% end %>
+          <% end %>
+        </ul>
 
-<%= yield %>
-
+        <%= render 'layouts/sign_in_state' %>
+        <p class="notice navbar-text navbar-right"><%= notice %></p>
+        <p class="alert navbar-text navbar-right"><%= alert %></p>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 </html>
