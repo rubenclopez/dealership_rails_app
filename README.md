@@ -9,6 +9,7 @@
 ##Prepare app: 
   * `gem install bundler`
   * `bundle install`
+  * `gem install json` # fixes known bug (could not find json error)
   * `rake db:migrate && rake db:setup`
 
 ##User accounts:
