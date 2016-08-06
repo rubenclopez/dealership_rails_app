@@ -1,0 +1,20 @@
+<div class="container" x-ng-controller="<%= locals[:name] %>Controller">
+  <div class="row" x-ng-if="!editModeOnly">
+    <div class="jumbotron">
+      <ds-form x-data="getEditingItem()"
+               x-whitelist-keys="whitelistKeys"
+               x-blacklist-keys="formBlacklistKeys"
+               x-select-element="selectElement"
+               x-resource="<%= locals[:name] %>"
+               x-on-submit="onSubmit({item: item, callback: callback})">
+      </ds-form>
+    </div>
+  </div>
+  <div class="row heavy-table">
+    <ds-table x-data="<%= locals[:name].pluralize(2) %>"
+              x-whitelist-keys="whitelistKeys"
+              x-on-destroy="onDestroy({item: item})"
+              x-edit-mode-only="<%= locals[:read_only_mode] %>">
+    </ds-table>
+  </div>
+</div>
