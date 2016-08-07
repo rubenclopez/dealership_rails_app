@@ -72,6 +72,22 @@ describe VehiclesController, type: :controller do
        expect(response).to be_success
     end
 
+    it "adds audit entry if sold_at_price is provided" do
+      sign_in salesman_user
+
+      patch :update, id: @vehicle.id, vehicle: {sold_at_price: 123_333_123}
+
+      expect(Audit.last.vehicle_id).to eql(@vehicle.id)
+    end
+
+    it "adds does not add an audit entry if sold_at_price is not provided" do
+      sign_in salesman_user
+
+      patch :update, id: @vehicle.id, vehicle: {sold_at_price: nil}
+
+      expect(Audit.count).to eql(0)
+    end
+
     it "fails to update if not logged in" do
       patch :update, id: @vehicle.id, vehicle: {heading: ''}
       expect(response).to_not be_success

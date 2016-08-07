@@ -5,22 +5,16 @@ class AuditsController < ApplicationController
   before_action :check_roles
 
   def index
-    @audits = Audit.all.map do |audit|
-      {
-        vehicle_id: audit.vehicle.id,
-        vehicle_name: audit.vehicle.heading,
-        vehicle_location: audit.vehicle.location.full_address,
-        seller_id: audit.user.id,
-        sold_on: audit.created_at,
-        sold_by: audit.user.full_name,
-        sold_for: audit.vehicle.sold_at_price
-      }
+    @audits = Audit.all.map(&:attributes).map(&:with_indifferent_access).map do |audit|
+      audit[:seller_id] = audit[:user_id]
+
+      audit.merge!(seller_id: audit[:user_id], sold_on: audit[:created_at])
     end
 
     respond_with(@audits)
   end
 
-  private 
+  private
 
   def check_roles
     if current_user.roles.include?(Role['owner'])

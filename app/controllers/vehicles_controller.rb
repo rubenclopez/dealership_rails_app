@@ -51,8 +51,15 @@ class VehiclesController < ApplicationController
   end
 
   def audit_action
-    if permitted_params[:sold_at_price].present?
-      Audit.create(user: current_user, vehicle: @vehicle)
+    sold_at_price = permitted_params[:sold_at_price]
+    if sold_at_price.present?
+      Audit.create(vehicle_name: @vehicle.heading,
+                   vehicle_location: @vehicle.location.full_address,
+                   sold_by: current_user.full_name,
+                   sold_for: sold_at_price,
+                   vehicle_id: @vehicle.id,
+                   user_id: current_user.id
+      )
     end
   end
 
