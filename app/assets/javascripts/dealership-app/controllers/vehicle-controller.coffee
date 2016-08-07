@@ -30,6 +30,7 @@ app.controller('vehicleController', ['$scope', '$filter', '$q', 'locationService
     if item.isEditing
       vehicleService.updateVehicle(item).then(
         (success)->
+          item.location_id = item.location
           callbackFn()
       ,
         (fail)->
@@ -38,7 +39,10 @@ app.controller('vehicleController', ['$scope', '$filter', '$q', 'locationService
     else
       vehicleService.postVehicle(item).then(
         (newVehicle)->
-          item.id = newVehicle.id
+          angular.extend(item,
+            id: newVehicle.id
+            location_id: item.location
+          )
           $scope.vehicles.push(item)
           callbackFn()
       ,
