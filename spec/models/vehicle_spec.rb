@@ -20,6 +20,10 @@ describe Vehicle, type: :model do
       .to change{ Vehicle.sold.count }.by(1)
   end
 
+  it "should not add sold_at timestamp if sold_at_price is not present" do
+    expect(subject.sold_at).to be_nil
+  end
+
   it "checks to see if a vehicle has been sold" do
     expect { subject.update_attributes(sold_at: Time.now, sold_at_price: 1000.50) }
       .to change { subject.has_been_sold? }

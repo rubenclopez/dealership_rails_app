@@ -2,7 +2,7 @@ class Vehicle < ActiveRecord::Base
   belongs_to :location
   has_one :audit
 
-  before_save :add_sold_at_timestamp if -> { attribute_present?("sold_at_price") }
+  before_save :add_sold_at_timestamp, if: -> { attribute_present?(:sold_at_price) }
 
   validates :heading, :description, :make, :model,
             :year, :location, presence: true

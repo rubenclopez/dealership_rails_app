@@ -14,6 +14,7 @@ app.controller('vehicleController', ['$scope', '$filter', '$q', 'locationService
       angular.extend($scope,
         whitelistKeys: ['heading', 'description', 'make', 'model', 'year', 'sold_at_price', 'sold_at']
         formBlacklistKeys: ['sold_at_price', 'sold_at']
+        transitionKeys: ['description']
         vehicles: vehicles
         selectElement:
           name: 'location'

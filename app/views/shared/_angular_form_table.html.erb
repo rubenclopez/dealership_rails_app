@@ -1,5 +1,5 @@
 <div class="container" x-ng-controller="<%= locals[:name] %>Controller">
-  <div class="row" x-ng-if="!editModeOnly">
+  <div class="row ds-form-container" x-ng-if="!editModeOnly">
     <div class="jumbotron">
       <ds-form x-data="getEditingItem()"
                x-whitelist-keys="whitelistKeys"
@@ -13,8 +13,10 @@
   <div class="row heavy-table">
     <ds-table x-data="<%= locals[:name].pluralize(2) %>"
               x-whitelist-keys="whitelistKeys"
+              x-transition-keys="transitionKeys"
               x-on-destroy="onDestroy({item: item})"
-              x-edit-mode-only="<%= locals[:read_only_mode] %>">
+              x-edit-mode-only="<%= locals[:read_only_mode] %>"
+              x-ng-if="<%= locals[:name].pluralize(2) %>">
     </ds-table>
   </div>
 </div>

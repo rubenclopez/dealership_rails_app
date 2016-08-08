@@ -52,7 +52,7 @@ class VehiclesController < ApplicationController
 
   def audit_action
     sold_at_price = permitted_params[:sold_at_price]
-    if sold_at_price.present?
+    if sold_at_price.present? && @vehicle.sold_at.to_s.blank?
       Audit.create(vehicle_name: @vehicle.heading,
                    vehicle_location: @vehicle.location.full_address,
                    sold_by: current_user.full_name,

@@ -23,48 +23,71 @@
 body {
   background: steelblue;
   font-family: "Open Sans", arial;
-}
 
-.alert {
-  padding: 0;
-  margin-bottom: 0;
-  border: 0;
-  border-radius: 0;
-  color: red !important;
-}
-
-.no-data {
-  text-align: center;
-}
-
-.ds-form {
-  input.ng-invalid {
-    border-color: #fed4d2;
+  .alert {
+    padding: 0;
+    margin-bottom: 0;
+    border: 0;
+    border-radius: 0;
+    color: red !important;
   }
 
-  input.ng-invalid.ng-touched {
-    border-color: #ff7070;
-  }
-}
+  .ds-form-container {
+     height: 470px;
 
+     .ds-form {
+       input.ng-invalid {
+         border-color: #fed4d2;
+       }
 
-// TODO: Move this out to somewhere cool
-.heavy-table {
-  div {
-      overflow: hidden;
-      -webkit-transition: max-height 1.5s cubic-bezier(0, 1.05, 0, 1);
-      -moz-transition: max-height 1.5s cubic-bezier(0, 1.05, 0, 1);
-      transition: max-height 1.5s ease cubic-bezier(0, 1.05, 0, 1);
-  }
-
-  div:hover {
-      -webkit-transition: max-height 2s ease;
-      -moz-transition: max-height 2s ease;
-      transition: max-height 2s ease;
-      max-height: 400px;
+       input.ng-invalid.ng-touched {
+         border-color: #ff7070;
+       }
+     }
   }
 
-  .table-button-center {
-    text-align: center
+  .heavy-table {
+    .no-data {
+      text-align: center;
+    }
+
+    .table-button-center {
+      text-align: center
+    }
+
+    .td-data-disabled{
+        overflow: hidden;
+        -webkit-transition: max-height 1.5s cubic-bezier(0, 1.05, 0, 1);
+        -moz-transition: max-height 1.5s cubic-bezier(0, 1.05, 0, 1);
+        transition: max-height 1.5s ease cubic-bezier(0, 1.05, 0, 1);
+        max-height: 40px;
+    }
+
+    .td-data-enabled{
+        -webkit-transition: max-height 2s ease;
+        -moz-transition: max-height 2s ease;
+        transition: max-height 2s ease;
+        max-height: 400px;
+    }
+
+    .row-animation {
+      .ng-enter {
+        -webkit-transition: 1.2s linear all;
+        transition: 1.2s linear all;
+        opacity: 0;
+      }
+
+      .ng-enter.ng-enter-active {
+        opacity: 1;
+      }
+      .ng-leave {
+             -webkit-transition: 1.2s linear all;
+             transition: 1.2s linear all;
+             opacity: 1;
+      }
+      .ng-leave.ng-leave-active {
+             opacity: 0;
+      }
+    }
   }
 }

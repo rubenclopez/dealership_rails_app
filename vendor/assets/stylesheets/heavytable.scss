@@ -24,7 +24,6 @@
     color: white;
     border: 1px solid #38678f;
     box-shadow: inset 0px 1px 2px #568ebd;
-    transition: all 0.2s;
     text-align: center;
   }
   tr {
@@ -35,9 +34,7 @@
   }
   td {
     border-right: 1px solid #cccccc;
-    height: 10px;
     padding: 10px;
-    transition: all 0.2s;
   }
   td:last-child {
     border-right: 0px;
@@ -45,6 +42,5 @@
 
   table {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    animation: float 5s infinite;
   }
 }

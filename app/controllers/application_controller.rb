@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
 
   # Helper function to simulate latency
   def simulate_latency
-    sleep(rand(4)) if Rails.env == 'development'
+    sleep(rand(2)) if Rails.env == 'development'
   end
 end
